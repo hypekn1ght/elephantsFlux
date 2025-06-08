@@ -16,12 +16,19 @@ import {
 function App() {
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showEmailWarning, setShowEmailWarning] = useState(false);
+
+  const isValidEmail = (email: string) => {
+    // Basic email validation regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
+    if (isValidEmail(email)) {
       setIsSubmitted(true);
-      setTimeout(() => setIsSubmitted(false), 3000);
+      window.location.href = 'https://app.elephants.inc/onboard/signup';
     }
   };
 
@@ -39,24 +46,24 @@ function App() {
               />
               <span className="text-xl font-bold text-gray-800">Elephants.inc</span>
             </div>
-            <div className="hidden md:flex items-center space-x-1 text-gray-300">
+            <div className="hidden md:flex items-center space-x-1 text-black">
               <span>×</span>
               <div className="flex items-center space-x-2 ml-2">
-                <img 
-                  src="/fluxbeam.png" 
-                  alt="fluxbeam Logo" 
-                  className="w-12 h-12 rounded object-cover"
-                />
+                <div className="p-0.5 bg-black rounded-md">
+                  <img
+                    src="/fluxbeam.png"
+                    alt="fluxbeam Logo"
+                    className="w-6 h-6 rounded object-cover"
+                  />
+                </div>
                 <span className="font-semibold">fluxbeam</span>
               </div>
             </div>
           </div>
           <div className="hidden md:flex items-center space-x-6">
             <a href="#features" className="text-gray-600 hover:text-primary-accent transition-colors">Features</a>
-            <a href="#about" className="text-gray-600 hover:text-primary-accent transition-colors">About</a>
-            <button className="px-4 py-2 bg-secondary-accent text-primary-accent rounded-lg hover:opacity-90 transition-colors">
-              Sign In
-            </button>
+            <a href="#footer-section" className="text-gray-600 hover:text-primary-accent transition-colors">About</a>
+            
           </div>
         </div>
       </header>
@@ -96,10 +103,14 @@ function App() {
                   </div>
                   <button
                     type="submit"
-                    disabled={isSubmitted}
+                    disabled={isSubmitted || !!(email && !isValidEmail(email))}
+                    onMouseEnter={() => { if (!email) setShowEmailWarning(true); }}
+                    onMouseLeave={() => setShowEmailWarning(false)}
                     className="px-8 py-4 bg-primary-accent text-white font-semibold rounded-xl hover:opacity-90 transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2 disabled:opacity-75"
                   >
-                    {isSubmitted ? (
+                    {showEmailWarning && !email ? (
+                      <span>Please enter email</span>
+                    ) : isSubmitted ? (
                       <>
                         <Check className="w-5 h-5" />
                         <span>Submitted!</span>
@@ -211,62 +222,18 @@ function App() {
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Airline Mile Rewards</h3>
               <p className="text-gray-700 mb-6">
                 World's first crypto card with airline mile rewards. 
-                Earn 2x miles on every transaction, redeemable with major airlines.
+                Earn 1 Mile per $1 spend on every transaction.
               </p>
               <div className="flex items-center space-x-2 text-primary-accent">
                 <Star className="w-5 h-5" />
-                <span className="font-semibold">2x Miles on Everything</span>
+                <span className="font-semibold">1 Mile per $1 spend</span>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Partnership Section */}
-      <section className="px-6 py-20">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="mb-8">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              Powered by Industry Leaders
-            </h2>
-            <p className="text-xl text-gray-700">
-              A partnership that combines financial innovation with technical excellence.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="text-center space-y-4">
-              <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto p-2">
-                <img 
-                  src="/elephantsLogoOnly.jpg" 
-                  alt="Elephants.inc Logo" 
-                  className="w-full h-full object-cover rounded-xl"
-                />
-              </div>
-              <h3 className="text-2xl font-bold text-white">Elephants.inc</h3>
-              <p className="text-gray-700">
-                Leading fintech innovator specializing in crypto-traditional finance bridges.
-              </p>
-            </div>
-
-            <div className="text-center space-y-4">
-              <div className="w-20 h-20 flex items-center justify-center mx-auto">
-                <img 
-                  src="/fluxbeam.png" 
-                  alt="fluxbeam Logo" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <h3 className="text-2xl font-bold text-white">fluxbeam</h3>
-              <p className="text-gray-700">
-                Cutting-edge blockchain infrastructure powering the future of digital payments.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
+      <section id="footer-section">
+      {/* Footer */} 
       <footer className="px-6 py-12 border-t border-neutral-bg">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8">
@@ -314,7 +281,7 @@ function App() {
 
           <div className="border-t border-neutral-bg pt-8 mt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-600 text-sm">
-              © 2024 Elephants.inc × fluxbeam. All rights reserved.
+              © 2025 Elephants.inc × fluxbeam. All rights reserved.
             </p>
             <div className="flex items-center space-x-6 mt-4 md:mt-0">
               <Globe className="w-5 h-5 text-gray-600" />
@@ -323,6 +290,7 @@ function App() {
           </div>
         </div>
       </footer>
+      </section>
     </div>
   );
 }
