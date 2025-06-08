@@ -235,12 +235,8 @@ function App() {
                 powered by USDC stability.
               </p>
               <div className="flex items-center space-x-4">
-                <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center">
-                  <span className="text-white text-lg font-bold"></span>
-                </div>
-                <div className="w-10 h-10 bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 to-blue-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">G</span>
-                </div>
+                <img src="/applepay.jpg" alt="Apple Pay" className="w-12 h-auto object-contain rounded" />
+                <img src="/Google_Pay_Logo.png" alt="Google Pay" className="w-12 h-auto object-contain rounded" />
               </div>
             </div>
 
