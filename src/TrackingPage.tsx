@@ -14,6 +14,8 @@ interface SignUpEntry {
   referrer: string | null;
   status: string | null;
   volume: number | null;
+  aff_reward?: number | null; // New column
+  paid_out?: number | null;   // New column, changed to numeric
   // Add any other relevant fields that might come from Supabase, like created_at
   created_at?: string;
 }
@@ -108,6 +110,8 @@ function TrackingPage() {
                       { id: 'referrer', label: 'Referrer' },
                       { id: 'status', label: 'Status' },
                       { id: 'volume', label: 'Volume' },
+                      { id: 'aff_reward', label: 'Aff. Reward' },
+                      { id: 'paid_out', label: 'Paid Out' },
                       // { id: 'created_at', label: 'Signed Up At' } // Example if you add created_at
                     ].map(header => (
                       <th 
@@ -141,6 +145,8 @@ function TrackingPage() {
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{signup.referrer || '-'}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{signup.status || '-'}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{signup.volume !== null ? signup.volume : '-'}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{signup.aff_reward !== null && signup.aff_reward !== undefined ? `$${signup.aff_reward.toFixed(2)}` : '-'}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{signup.paid_out !== null && signup.paid_out !== undefined ? signup.paid_out : '-'}</td>
                     </tr>
                   ))}
                 </tbody>

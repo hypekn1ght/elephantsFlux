@@ -62,9 +62,6 @@ function PasswordProtect({ children, correctPassword = 'fluxbeam724' }: Password
             </button>
           </div>
         </form>
-        <p className="mt-4 text-xs text-gray-500 text-center">
-          Hint: The password is <span className="font-mono">fluxbeam724</span>
-        </p>
       </div>
     </div>
   );
