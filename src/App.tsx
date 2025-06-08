@@ -12,11 +12,20 @@ import {
   Globe,
   Zap
 } from 'lucide-react';
+import { createClient } from '@supabase/supabase-js';
+import { Link } from 'react-router-dom';
+import { Loader2 } from 'lucide-react';
+
+// TODO: Move these to environment variables (e.g., .env and import.meta.env.VITE_SUPABASE_URL)
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 function App() {
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showEmailWarning, setShowEmailWarning] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const isValidEmail = (email: string) => {
     // Basic email validation regex
@@ -24,11 +33,43 @@ function App() {
     return emailRegex.test(email);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isValidEmail(email)) {
-      setIsSubmitted(true);
-      window.location.href = 'https://app.elephants.inc/onboard/signup';
+      setIsLoading(true);
+      try {
+        // 1. Check if email exists
+        const { data: existingUser, error: selectError } = await supabase
+          .from('signups')
+          .select('user_email')
+          .eq('user_email', email)
+          .maybeSingle();
+
+        if (selectError) {
+          console.error('Error checking for existing email:', selectError.message);
+          return; 
+        }
+
+        // 2. If not, create new entry
+        if (!existingUser) { 
+          const { error: insertError } = await supabase
+            .from('signups')
+            .insert([{ user_email: email, status: 'pending', referrer: 'fluxbeam' }]);
+
+          if (insertError) {
+            console.error('Error inserting new email:', insertError.message);
+            return;
+          }
+        }
+        
+        setIsSubmitted(true);
+        window.location.href = 'https://app.elephants.inc/onboard/signup';
+
+      } catch (error) {
+        console.error('An unexpected error occurred during form submission:', error);
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
@@ -103,12 +144,17 @@ function App() {
                   </div>
                   <button
                     type="submit"
-                    disabled={isSubmitted || !!(email && !isValidEmail(email))}
+                    disabled={isLoading || isSubmitted || !!(email && !isValidEmail(email))}
                     onMouseEnter={() => { if (!email) setShowEmailWarning(true); }}
                     onMouseLeave={() => setShowEmailWarning(false)}
                     className="px-8 py-4 bg-primary-accent text-white font-semibold rounded-xl hover:opacity-90 transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2 disabled:opacity-75"
                   >
-                    {showEmailWarning && !email ? (
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        <span>Processing...</span>
+                      </>
+                    ) : showEmailWarning && !email ? (
                       <span>Please enter email</span>
                     ) : isSubmitted ? (
                       <>
