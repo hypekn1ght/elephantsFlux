@@ -179,7 +179,7 @@ function App() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {/* Apple & Google Pay */}
               <div className="group bg-white border border-secondary-accent rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
                 <div className="w-16 h-16 bg-secondary-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -225,6 +225,21 @@ function App() {
                 <div className="flex items-center space-x-2 text-primary-accent">
                   <Star className="w-5 h-5" />
                   <span className="font-semibold">Up to 1 Mile per $1 spend</span>
+                </div>
+              </div>
+
+              {/* Stablecoin Invoicing */}
+              <div className="group bg-white border border-secondary-accent rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
+                <div className="w-16 h-16 bg-secondary-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Zap className="w-8 h-8 text-primary-accent" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">Stablecoin Invoicing</h3>
+                <p className="text-gray-700 mb-6">
+                  Easily create and send invoices payable in stablecoins. Streamline your business payments globally.
+                </p>
+                <div className="flex items-center space-x-2 text-primary-accent">
+                  <Globe className="w-5 h-5" />
+                  <span className="font-semibold">Global & Instant</span>
                 </div>
               </div>
             </div>
