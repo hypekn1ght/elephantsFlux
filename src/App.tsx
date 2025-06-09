@@ -123,8 +123,8 @@ function App() {
                   Banking Reimagined
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  Experience the future of digital banking with USDC stability, Apple Pay integration, 
-                  and earn airline miles on every crypto transaction.
+                  Experience the future of payments with stablecoins, Apple Pay integration, 
+                  and earn airline miles on every transaction.
                 </p>
               </div>
 
@@ -219,7 +219,7 @@ function App() {
               Revolutionary Features
             </h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              The perfect fusion of traditional banking convenience and cutting-edge crypto innovation.
+              The perfect fusion of visa convenience and cutting-edge crypto innovation.
             </p>
           </div>
 
@@ -264,11 +264,11 @@ function App() {
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Airline Mile Rewards</h3>
               <p className="text-gray-700 mb-6">
                 World's first crypto card with airline mile rewards. 
-                Earn 1 Mile per $1 spend on every transaction.
+                Earn up to 1 Mile per $1 spend on every transaction.
               </p>
               <div className="flex items-center space-x-2 text-primary-accent">
                 <Star className="w-5 h-5" />
-                <span className="font-semibold">1 Mile per $1 spend</span>
+                <span className="font-semibold">Up to 1 Mile per $1 spend</span>
               </div>
             </div>
           </div>
@@ -289,26 +289,16 @@ function App() {
                 <span className="text-xl font-bold text-gray-800">Elephants.inc</span>
               </div>
               <p className="text-gray-600">
-                Banking reimagined for the digital age.
+                Payments reimagined for the digital age.
               </p>
             </div>
 
             <div className="space-y-4">
-              <h4 className="font-semibold text-gray-800">Product</h4>
-              <div className="space-y-2">
-                <a href="#" className="block text-gray-400 hover:text-white transition-colors">Features</a>
-                <a href="#" className="block text-gray-400 hover:text-white transition-colors">Security</a>
-                <a href="#" className="block text-gray-400 hover:text-white transition-colors">Pricing</a>
-              </div>
+              
             </div>
 
             <div className="space-y-4">
-              <h4 className="font-semibold text-gray-800">Company</h4>
-              <div className="space-y-2">
-                <a href="#" className="block text-gray-400 hover:text-white transition-colors">About</a>
-                <a href="#" className="block text-gray-400 hover:text-white transition-colors">Careers</a>
-                <a href="#" className="block text-gray-400 hover:text-white transition-colors">Contact</a>
-              </div>
+              
             </div>
 
             <div className="space-y-4">
@@ -325,10 +315,6 @@ function App() {
             <p className="text-gray-600 text-sm">
               © 2025 Elephants.inc × fluxbeam. All rights reserved.
             </p>
-            <div className="flex items-center space-x-6 mt-4 md:mt-0">
-              <Globe className="w-5 h-5 text-gray-600" />
-              <span className="text-sm text-gray-600">FDIC Insured • SOC 2 Compliant</span>
-            </div>
           </div>
         </div>
       </footer>
