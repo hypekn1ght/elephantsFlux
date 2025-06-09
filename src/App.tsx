@@ -120,7 +120,7 @@ function App() {
                   <span>World's First Crypto Airline Rewards Card</span>
                 </div>
                 <h1 className="text-5xl lg:text-6xl font-bold text-gray-800 leading-tight">
-                  Banking Reimagined
+                  Payments Reimagined
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed">
                   Experience the future of payments with stablecoins, Apple Pay integration, 
@@ -173,20 +173,7 @@ function App() {
               </form>
 
               {/* Trust Indicators */}
-              <div className="flex items-center space-x-8 pt-8">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-800">$2.5B+</div>
-                  <div className="text-sm text-gray-600">Assets Protected</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-800">150K+</div>
-                  <div className="text-sm text-gray-600">Active Users</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-800">99.9%</div>
-                  <div className="text-sm text-gray-600">Uptime</div>
-                </div>
-              </div>
+             
             </div>
 
             {/* Hero Visual */}
