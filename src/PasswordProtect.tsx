@@ -7,7 +7,7 @@ interface PasswordProtectProps {
 
 
 
-function PasswordProtect({ children, correctPassword = 'fluxbeam724' }: PasswordProtectProps) {
+function PasswordProtect({ children, correctPassword = 'elephants777' }: PasswordProtectProps) {
   const [enteredPassword, setEnteredPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [error, setError] = useState('');
