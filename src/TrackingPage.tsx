@@ -174,8 +174,8 @@ function TrackingPage() {
       {/* Header */}
       <header className="px-6 py-6 border-b border-neutral-bg">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link to="/" className="text-2xl font-bold text-primary-accent hover:opacity-80 transition-opacity">
-            Elephants.inc
+          <Link to="/" className="hover:opacity-80 transition-opacity">
+            <img src="/elephantsLogo+Text.jpg" alt="Elephants Inc Logo" className="h-10" />
           </Link>
           <div className="flex items-center space-x-4">
             <h1 className="text-3xl font-semibold text-gray-700">Referral Tracking</h1>

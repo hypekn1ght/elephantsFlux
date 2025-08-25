@@ -18,8 +18,8 @@ function ReferralCodeEntryPage() {
       {/* Header */}
       <header className="px-6 py-6 border-b border-neutral-bg">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link to="/" className="text-2xl font-bold text-primary-accent hover:opacity-80 transition-opacity">
-            Elephants.inc
+          <Link to="/" className="hover:opacity-80 transition-opacity">
+            <img src="/elephantsLogo+Text.jpg" alt="Elephants Inc Logo" className="h-10" />
           </Link>
           <h1 className="text-3xl font-semibold text-gray-700">Referral Tracking</h1>
         </div>
@@ -30,7 +30,7 @@ function ReferralCodeEntryPage() {
         <div className="max-w-md mx-auto">
           <div className="bg-white p-8 rounded-xl shadow-md border border-neutral-bg">
             <h2 className="text-2xl font-semibold text-center mb-6">Enter Your Referral Code</h2>
-            
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="referralCode" className="block text-sm font-medium text-gray-700 mb-1">
@@ -46,7 +46,7 @@ function ReferralCodeEntryPage() {
                   required
                 />
               </div>
-              
+
               <div>
                 <button
                   type="submit"
@@ -56,7 +56,7 @@ function ReferralCodeEntryPage() {
                 </button>
               </div>
             </form>
-            
+
           </div>
         </div>
       </main>
