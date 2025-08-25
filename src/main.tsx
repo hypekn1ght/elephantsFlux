@@ -17,9 +17,7 @@ createRoot(document.getElementById('root')!).render(
         <Route
           path="/:referralCode"
           element={
-            <PasswordProtect>
               <TrackingPage />
-            </PasswordProtect>
           }
         />
         <Route
