@@ -21,7 +21,7 @@ function ReferralCodeEntryPage() {
           <Link to="/" className="hover:opacity-80 transition-opacity">
             <img src="/elephantsLogo+Text.jpg" alt="Elephants Inc Logo" className="h-10" />
           </Link>
-          <h1 className="text-3xl font-semibold text-gray-700">Referral Tracking</h1>
+          
         </div>
       </header>
 

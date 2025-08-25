@@ -178,7 +178,7 @@ function TrackingPage() {
             <img src="/elephantsLogo+Text.jpg" alt="Elephants Inc Logo" className="h-10" />
           </Link>
           <div className="flex items-center space-x-4">
-            <h1 className="text-3xl font-semibold text-gray-700">Referral Tracking</h1>
+            
             {referralCode && (
               <div className="flex items-center">
                 <span className="text-sm bg-primary-accent/10 text-primary-accent px-3 py-1 rounded-full">
