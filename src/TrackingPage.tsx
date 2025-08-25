@@ -177,24 +177,8 @@ function TrackingPage() {
           <Link to="/" className="hover:opacity-80 transition-opacity">
             <img src="/elephantsLogo+Text.jpg" alt="Elephants Inc Logo" className="h-10" />
           </Link>
-          <div className="flex items-center space-x-4">
-            
-            {referralCode && (
-              <div className="flex items-center">
-                <span className="text-sm bg-primary-accent/10 text-primary-accent px-3 py-1 rounded-full">
-                  Filtered by code: {referralCode}
-                </span>
-                <button 
-                  onClick={() => navigate('/tracking')}
-                  className="ml-2 text-sm text-gray-500 hover:text-gray-700"
-                >
-                  Clear
-                </button>
-              </div>
-            )}
-          </div>
           <Link to="/" className="text-sm bg-primary-accent text-white px-4 py-2 rounded-md hover:bg-primary-accent/90 transition-colors">
-            Enter Referral Code
+            {referralCode}
           </Link>
         </div>
       </header>
